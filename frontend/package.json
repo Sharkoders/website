@@ -1,0 +1,20 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "bin/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
