@@ -2,11 +2,17 @@
 
 [![GPLv3 License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/) [![GitHub issues](https://img.shields.io/github/issues/sharkoders/website.svg?style=flat)]() [![GitHub PR](https://img.shields.io/github/issues-pr/sharkoders/website.svg?style=flat)]()
 
+## 📐 Architecture 📐
+
+### ⚙️ Architecture diagram
+
+![Architecture diagram](docs/architecture.png)
+
 ## 💻 Local development 💻
 
 ### 🏗️ Prerequisites
 
-> [!INFO]
+> [!NOTE]
 > We recommand to have a UNIX system on your machine for a better development experience.
 > In case you're using Windows, install WSL2 if not already done.
 
