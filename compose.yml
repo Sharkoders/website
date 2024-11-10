@@ -20,5 +20,6 @@ services:
     build: frontend/
     volumes:
       - ./nginx/certs:/app/certs:rw
+      - ./frontend/views:/app/views:rw
     depends_on:
       - backend
