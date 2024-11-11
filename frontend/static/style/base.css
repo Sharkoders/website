@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap);
+
+:root {
+  --background-color: hsl(250, 50%, 8%);
+  --foreground-text: hsl(250, 10%, 90%);
+  --foreground-footer: hsl(250, 10%, 70%);
+  --font-family-text: "Jetbrains Mono", monospace;
+  --link-color: hsl(150, 100%, 50%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-text);
+  font-family: var(--font-family-text);
+  text-align: justify;
+}
+
+section {
+  min-height: 100dvh;
+  padding: 2em 10em;
+}
+
+section:last-of-type {
+  min-height: calc(100dvh - 12em);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  position: relative;
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  bottom: -0.1em;
+  height: 2px;
+  left: 0;
+  right: 0;
+  background-color: var(--link-color);
+  transform: scaleX(0);
+  transition: 200ms transform ease-in-out;
+  transform-origin: right;
+}
+
+a:hover:before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+@media screen and (max-width: 1000px) {
+  section {
+    padding: 2em 5em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  section {
+    padding: 2em 2em;
+  }
+}

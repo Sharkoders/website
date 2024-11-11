@@ -1,0 +1,60 @@
+header {
+  height: 6em;
+  background-color: var(--background-color);
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4em;
+  align-items: center;
+  gap: 1em;
+}
+
+header > div {
+  display: flex;
+  gap: 1em;
+}
+
+header #challenge {
+  --badge-color: hsl(50, 100%, 50%);
+}
+
+header #actus {
+  --badge-color: hsl(150, 100%, 50%);
+}
+
+header #space {
+  --badge-color: hsl(200, 100%, 50%);
+}
+
+header .badge {
+  padding: 0.5em 1em;
+  border: 2px solid var(--badge-color);
+  border-radius: 3em;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  color: var(--badge-color);
+  text-decoration: none;
+  transition: 200ms background-color ease-in-out;
+}
+
+header .badge::before {
+  all: unset;
+}
+
+header .badge:hover {
+  background-color: color-mix(in srgb, var(--badge-color) 15%, transparent);
+}
+
+@media screen and (max-width: 630px) {
+  header {
+    height: 10.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+    padding: 2em;
+  }
+}
