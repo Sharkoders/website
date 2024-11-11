@@ -39,6 +39,10 @@ header .badge {
   transition: 200ms background-color ease-in-out;
 }
 
+header .badge::before {
+  all: unset;
+}
+
 header .badge:hover {
   background-color: color-mix(in srgb, var(--badge-color) 15%, transparent);
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head.ejs", { title }) %>
+  </head>
+
+  <body>
+    <%- include("partials/header.ejs") %>
+    
+    <section>
+      <h1>Inscription</h1>
+      <div>
+        <form action="/login" method="post">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+          <label for="password">Mot de passe</label>
+          <input type="password" name="password" id="password">
+          <label for="password">Confirmer le mot de passe</label>
+          <input type="password" name="password-bis" id="password-bis">
+          <div class="info">
+            <p>
+              Par sécurité, veuillez à choisir un mot de passe qui soit sûr et différent de vos autres mots de passe.
+              Vous trouverez des recommandations de <a href="https://www.cnil.fr/fr/mots-de-passe-une-nouvelle-recommandation-pour-maitriser-sa-securite">la CNIL</a> ainsi que de <a href="https://www.cisa.gov/secure-our-world/use-strong-passwords">la CISA</a>.
+            </p>
+          </div>
+          <input type="submit" value="S'inscrire">
+  
+          <p>Déjà inscrit ? <a href="/login">Connectez vous !</a></p>
+        </form>
+      </div>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
