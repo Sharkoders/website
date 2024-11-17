@@ -13,12 +13,12 @@
         <form action="/login" method="post">
           <label for="email">Email</label>
           <input type="email" name="email" id="email">
-          <label for="password">Mot de passe</label>
-          <input type="password" name="password" id="password">
+          <label for="totp">TOTP</label>
+          <input type="text" name="totp" id="totp">
           <input type="submit" value="Se connecter">
   
           <p>Aucun compte ? <a href="/register">Créez-en un !</a></p>
-          <p>Mot de passe oublié ? <a href="/login/totp">Utilisez votre TOTP !</a></p>
+          <p><a href="/login">Retourner à la connexion par défaut.</a></p>
         </form>
       </div>
     </section>
