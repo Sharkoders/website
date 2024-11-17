@@ -4,6 +4,10 @@ import helmet from "helmet";
 import https from "https";
 import LoginRouter from "./router/login.js";
 
+if (process.env.DEBUG_MODE == "true") {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+}
+
 const app = express();
 const port = 443;
 const options = {
