@@ -11,10 +11,24 @@ services:
     depends_on:
       - frontend
 
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongo-db:/data/db
+      - mongo-config:/data/configdb
+
   backend:
     build: backend/
     volumes:
       - ./nginx/certs:/app/certs:ro
+    environment:
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - DEBUG_MODE=${DEBUG_MODE}
 
   frontend:
     build: frontend/
@@ -25,3 +39,8 @@ services:
       - backend
     environment:
       - SESSION_KEYS=${SESSION_KEYS}
+      - DEBUG_MODE=${DEBUG_MODE}
+
+volumes:
+  mongo-db:
+  mongo-config:
