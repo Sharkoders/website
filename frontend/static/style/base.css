@@ -6,6 +6,7 @@
   --foreground-footer: hsl(250, 10%, 70%);
   --font-family-text: "Jetbrains Mono", monospace;
   --link-color: hsl(150, 100%, 50%);
+  --error-color: hsl(50, 100%, 50%);
 }
 
 * {

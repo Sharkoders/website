@@ -21,6 +21,10 @@ form p {
   margin-top: 0;
 }
 
+form p.error {
+  color: var(--error-color);
+}
+
 input {
   background-color: var(--background-color);
   border: 1px solid var(--foreground-footer);

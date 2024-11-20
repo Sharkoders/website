@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <%- include("partials/head.ejs", { title }) %>
+    <script src="/static/script/form.js" defer></script>
   </head>
 
   <body>
@@ -10,9 +11,9 @@
     <section>
       <h1>Connexion</h1>
       <div>
-        <form action="/login" method="post">
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email">
+        <form action="/login/totp" method="post">
+          <label for="username">Email ou pseudo</label>
+          <input type="text" name="username" id="username">
           <label for="totp">TOTP</label>
           <input type="text" name="totp" id="totp">
           <input type="submit" value="Se connecter">

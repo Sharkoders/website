@@ -41,23 +41,23 @@ const login: RequestHandler = async (req, res) => {
     return;
   }
 
-  if (req.body.username == undefined || req.body.password == undefined) {
+  const username: string = (req.body.username as string ?? "").trim();
+  const password: string = (req.body.password as string ?? "").trim();
+
+  if (username == "" || password == "") {
     res.status(400);
-    res.json({ error: "Fields 'username' and 'password' must be all set." });
+    res.json({ error: "Veuillez renseigner tout les champs requis." });
     return;
   }
 
   const response = await fetch("https://backend/login", {
     method: "POST",
-    body: JSON.stringify({
-      username: req.body.username,
-      password: req.body.password
-    })
+    body: JSON.stringify({ username, password })
   });
 
   if (response.status != 200) {
     res.status(400);
-    res.json({ error: "Wrong username or password." });
+    res.json({ error: "Identifiants incorrects." });
     return;
   }
 
@@ -77,23 +77,30 @@ const loginTOTP: RequestHandler = async (req, res) => {
     return;
   }
 
-  if (req.body.username == undefined || req.body.totp == undefined) {
+  const username: string = (req.body.username as string ?? "").trim();
+  const totpString: string = (req.body.totp as string ?? "").trim();
+
+  if (username == "" || totpString == "") {
     res.status(400);
-    res.json({ error: "Fields 'username' and 'totp' must be all set." });
+    res.json({ error: "Veuillez renseigner tout les champs requis." });
+    return;
+  }
+
+  const totp = Number.parseInt(totpString);
+  if (Number.isNaN(totp)) {
+    res.status(400);
+    res.json({ error: "Le TOTP fourni doit être un nombre." });
     return;
   }
 
   const response = await fetch("https://backend/login", {
     method: "POST",
-    body: JSON.stringify({
-      username: req.body.username,
-      totp: req.body.totp
-    })
+    body: JSON.stringify({ username, totp })
   });
 
   if (response.status != 200) {
     res.status(400);
-    res.json({ error: "Wrong username or totp." });
+    res.json({ error: "Identifiants incorrects." });
     return;
   }
 
