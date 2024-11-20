@@ -44,7 +44,7 @@ const register: RequestHandler = async (req, res) => {
 
   if (response.status != 200) {
     res.status(400);
-    res.json({ error: "Username already registered." });
+    res.json(await response.json());
     return;
   }
 
