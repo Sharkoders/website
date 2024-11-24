@@ -52,6 +52,9 @@ const login: RequestHandler = async (req, res) => {
 
   const response = await fetch("https://backend/login", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({ username, password })
   });
 
@@ -95,6 +98,9 @@ const loginTOTP: RequestHandler = async (req, res) => {
 
   const response = await fetch("https://backend/login", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({ username, totp })
   });
 

@@ -38,7 +38,7 @@ const register: RequestHandler = async (req, res) => {
 
   const response = await users.insertOne({
     username: req.body.username,
-    password: argon2.hash(req.body.password),
+    password: await argon2.hash(req.body.password),
     email: req.body.email
   });
 

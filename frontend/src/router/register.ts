@@ -39,6 +39,9 @@ const register: RequestHandler = async (req, res) => {
 
   const response = await fetch("https://backend/register", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({ email, username, password })
   });
 
