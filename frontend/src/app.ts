@@ -1,12 +1,19 @@
 import express from "express";
 import helmet from "helmet";
 import https from "https";
-import session from "./middleware/session.js";
 import { readFileSync } from "fs";
+
+import session from "./middleware/session.js";
 import { isAuthenticated } from "./middleware/auth.js";
+
 import LoginRouter from "./router/login.js";
 import LogoutRouter from "./router/logout.js";
 import RegisterRouter from "./router/register.js";
+import CreateTOTPRouter from "./router/create-totp.js";
+
+if (process.env.DEBUG_MODE == "true") {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+}
 
 const app = express();
 const port = 443;
@@ -30,6 +37,7 @@ app.use(isAuthenticated());
 app.use("/login", LoginRouter);
 app.use("/logout", LogoutRouter);
 app.use("/register", RegisterRouter);
+app.use("/create-totp", CreateTOTPRouter);
 
 app.get("/", (_, res) => {
   res.render("index", { title: "Sharkoders" });

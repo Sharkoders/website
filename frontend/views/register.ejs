@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <%- include("partials/head.ejs", { title }) %>
+    <script src="/static/script/form.js" defer></script>
   </head>
 
   <body>
@@ -11,6 +12,8 @@
       <h1>Inscription</h1>
       <div>
         <form action="/register" method="post">
+          <label for="username">Pseudo</label>
+          <input type="text" name="username" id="username">
           <label for="email">Email</label>
           <input type="email" name="email" id="email">
           <label for="password">Mot de passe</label>

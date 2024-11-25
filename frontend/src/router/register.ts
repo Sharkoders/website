@@ -26,29 +26,34 @@ const register: RequestHandler = async (req, res) => {
     res.redirect("/account");
     return;
   }
+  
+  const email: string = (req.body.email as string ?? "").trim();
+  const username: string = (req.body.username as string ?? "").trim();
+  const password: string = (req.body.password as string ?? "").trim();
 
-  if (req.body.username == undefined || req.body.password == undefined) {
+  if (email == "" || username == "" || password == "") {
     res.status(400);
-    res.json({ error: "Fields 'username' and 'password' must be all set." });
+    res.json({ error: "Veuillez renseigner tout les champs requis." });
     return;
   }
 
   const response = await fetch("https://backend/register", {
     method: "POST",
-    body: JSON.stringify({
-      username: req.body.username,
-      password: req.body.password
-    })
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, username, password })
   });
 
   if (response.status != 200) {
     res.status(400);
-    res.json({ error: "Username already registered." });
+    res.json(await response.json());
     return;
   }
 
   req.session = await response.json();
-  res.redirect("/create-totp");
+  res.setHeader("Location", "/create-totp");
+  res.sendStatus(201)
   return;
 };
 
