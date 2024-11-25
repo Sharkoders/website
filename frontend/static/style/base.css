@@ -6,6 +6,7 @@
   --foreground-footer: hsl(250, 10%, 70%);
   --font-family-text: "Jetbrains Mono", monospace;
   --link-color: hsl(150, 100%, 50%);
+  --strong-color: hsl(50, 100%, 50%);
   --error-color: hsl(50, 100%, 50%);
 }
 
@@ -24,6 +25,10 @@ body {
   color: var(--foreground-text);
   font-family: var(--font-family-text);
   text-align: justify;
+}
+
+h1 {
+  text-align: center;
 }
 
 section {
@@ -57,6 +62,10 @@ a::before {
 a:hover:before {
   transform-origin: left;
   transform: scaleX(1);
+}
+
+strong {
+  color: var(--strong-color);
 }
 
 @media screen and (max-width: 1000px) {

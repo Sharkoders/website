@@ -52,7 +52,8 @@ const register: RequestHandler = async (req, res) => {
   }
 
   req.session = await response.json();
-  res.redirect("/create-totp");
+  res.setHeader("Location", "/create-totp");
+  res.sendStatus(201)
   return;
 };
 

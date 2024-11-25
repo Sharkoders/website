@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head.ejs", { title }) %>
+    <script src="/static/script/form.js" defer></script>
+    <script src="/static/script/qrcode.min.js" defer></script>
+    <script src="/static/script/totp-seed.js" defer></script>
+  </head>
+
+  <body>
+    <%- include("partials/header.ejs") %>
+    
+    <section>
+      <h1>Mise à jour du TOTP</h1>
+      <div>
+        <form action="/create-totp" method="post">
+          <div>Ces mots de passe à usage uniques seront <strong>ta seule possibilité</strong> de récupération de compte en cas de perte de mot de passe. Ce n'est pas une étape obligatoire mais elle est recommandée.</div>
+          <div class="info">Scanne le QR code suivant sur ton application d'authentification préférée. Nous ne pouvons que recommander <a href="https://2fas.com/">2FAS</a>, qui est open source.</div>
+          <div id="qrcode"><div></div></div>
+          <label for="totp">Code à usage unique</label>
+          <input type="text" name="totp" id="totp">
+          <input type="hidden" name="seed" id="seed">
+          <div>
+            <a href="/account">Annuler</a>
+            <input type="submit" value="Valider">
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

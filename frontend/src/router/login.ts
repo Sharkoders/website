@@ -65,7 +65,8 @@ const login: RequestHandler = async (req, res) => {
   }
 
   req.session = await response.json();
-  res.redirect("/account");
+  res.setHeader("Location", "/account");
+  res.sendStatus(200)
   return;
 };
 
@@ -96,7 +97,7 @@ const loginTOTP: RequestHandler = async (req, res) => {
     return;
   }
 
-  const response = await fetch("https://backend/login", {
+  const response = await fetch("https://backend/login/totp", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -111,7 +112,8 @@ const loginTOTP: RequestHandler = async (req, res) => {
   }
 
   req.session = await response.json();
-  res.redirect("/account");
+  res.setHeader("Location", "/account");
+  res.sendStatus(200)
   return;
 };
 

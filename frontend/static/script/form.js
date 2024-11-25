@@ -9,7 +9,6 @@ async function sendForm(event) {
   event.preventDefault();
   const response = await fetch(this.action, {
     method: this.method,
-    redirect: "follow",
     headers: {
       "Content-Type": "application/json"
     },
@@ -26,6 +25,11 @@ async function sendForm(event) {
       this.querySelector("[type=submit]").insertAdjacentElement("afterend", error);
     }
     error.innerText = errorJson.error;
+  }
+
+  const redirectUrl = response.headers.get("Location");
+  if (redirectUrl) {
+    window.location.href = redirectUrl;
   }
 }
 

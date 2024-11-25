@@ -3,6 +3,7 @@ header {
   background-color: var(--background-color);
   position: sticky;
   top: 0;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   padding: 0 4em;

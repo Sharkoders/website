@@ -51,6 +51,21 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   background-color: color-mix(in srgb, var(--background-color) 90%, white);
 }
 
+div:has(input[type="submit"]) {
+  justify-self: right;
+}
+
+div#qrcode {
+  display: grid;
+  place-content: center;
+  padding: 2em 0;
+}
+
+div#qrcode > div {
+  background-color: white;
+  padding: 0.5em;
+}
+
 label {
   margin-top: 0.5em;
 }
